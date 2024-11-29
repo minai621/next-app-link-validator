@@ -1,0 +1,21 @@
+name: "next-app-link-validator"
+description: "Validates all hrefs in a Next.js application to ensure they are accessible."
+author: minai621
+
+inputs:
+  base_url:
+    description: "The base URL for validation (e.g., http://localhost:3000)."
+    required: true
+    type: string
+  start_command:
+    description: "The command to start the Next.js server (e.g., pnpm run start)."
+    required: true
+    type: string
+  working_dir:
+    description: "The working directory of the Next.js application."
+    required: true
+    type: string
+
+runs:
+  using: "node20"
+  main: "dist/main.js"

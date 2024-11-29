@@ -1,0 +1,45 @@
+name: Test Validate Hrefs Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-validate-hrefs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install pnpm
+        run: corepack prepare pnpm@9.14.2 --activate
+
+      - name: Install dependencies for action
+        run: pnpm install
+        working-directory: ./plugin
+
+      - name: Build action
+        run: pnpm run build
+        working-directory: ./plugin
+
+      - name: Run Validate Hrefs Action
+        uses: ./  
+        with:
+          base_url: http://localhost:3000
+          start_command: pnpm run start
+          working_dir: ./test-next

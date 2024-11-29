@@ -1,0 +1,26 @@
+{
+  "name": "next-app-link-validator",
+  "version": "1.0.0",
+  "description": "GitHub Action to validate all hrefs in a Next.js application.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "github-action",
+    "nextjs",
+    "href-validation",
+    "ci"
+  ],
+  "author": "minai621",
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.0"
+  }
+}
